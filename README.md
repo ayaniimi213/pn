@@ -11,7 +11,7 @@ pn
 ■ 必要なもの
 ----
 - ruby
-- chasen
+- MeCab
 - 感情表現辞書
 
 ■ ファイル
@@ -24,7 +24,7 @@ pn
 
 ■ 設定
 ----
-必要ならpn.rb中のchasenおよび、chasendicの場所を環境に合わせて修正する
+必要ならpn.rb中のmecabコマンドおよびオプションを環境に合わせて修正する
 
 CGIで利用するなら、index.html, pn.cgiを環境に合わせて修正する
 
