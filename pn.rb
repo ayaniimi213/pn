@@ -25,20 +25,17 @@ class PN
   def load_dic(filename)
     open(filename){|file|
       while line = file.gets
-	line.strip!
-      # 見出し語:読み:品詞:感情極性実数値
+        line.strip!
+        # 見出し語:読み:品詞:感情極性実数値
         (word, yomi, part, value) = line.split(":")
         @dic[word] = value
       end
     }
-#    @dic.each_pair{|key, value|
-#      puts "#{key}:#{value}"
-#    }
   end
 
   # analyze
   def analyze(src)
-#    src = "私は良かったです。"
+    # src = "私は良かったです。"
     analyze_qn_core(src)
   end
   
@@ -55,17 +52,14 @@ class PN
     #{@mecab} #{@mecab_option}", "r"){|file|
       while line = file.gets
         line.strip!
-	word = line.split(":")[-1]
-       if @dic.key?(word) then 
-#          p @dic[word].to_f
+      	word = line.split(":")[-1]
+        if @dic.key?(word) then 
           score = score + @dic[word].to_f
-  #        p word
-	wc = wc + 1
+	        wc = wc + 1
         end
       end
     }
     score = score / wc if wc != 0
-#    p score
     return score
   end
 
